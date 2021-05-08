@@ -9,3 +9,6 @@
   <br> <br>
     <code>main.py</code> <br> <br>
   5. Follow The Instructions In The CMD/Terminal</h3>
+
+<h1>Found An Issue!</h1>
+<h2>If An Issue Is Found Please Report It In The Issues Tab</h2>
