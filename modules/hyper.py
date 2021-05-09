@@ -38,11 +38,16 @@ TokenValue = input("Enter Your Token:")
 PrefixValue = input("Enter Your Prefix:")
 print('Success! Token will be saved in your-project/config/.env after choice is given.')
 
-for i in range(0, 1):
 
-    print("1. Create!\n")
+try:
+  for i in range(0, 1):
 
-    choice = int(input('Choice:'))
+      print("1. Create!\n")
+
+      choice = int(input('Choice:'))
+except ValueError:
+  print("You didn't enter a number!")
+
 
     if (choice == 1):
       if sys.platform.startswith('linux'):
@@ -95,17 +100,13 @@ import json
 from discord.ext import commands
 from dotenv import load_dotenv
 import os
-
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 PREFIX = os.getenv("PREFIX")
-
 client = commands.Bot(command_prefix = PREFIX, intents=discord.Intents.all())
-
 @client.event
 async def on_ready():
   print("Bot is ready!")
-
 client.load_extension('cogs.moderation')
 client.load_extension('cogs.fun')
 client.load_extension('cogs.miscellaneous')
@@ -122,7 +123,6 @@ PREFIX={PrefixValue}""")
         f.write(f"""import discord
 from discord.ext import commands
 import json
-
 class Moderation(commands.Cog):
   def __init__(self, client):
     self.client = client
@@ -137,12 +137,9 @@ def setup(client):
 from discord.ext import commands
 import json
 import random
-
 class Fun(commands.Cog):
   def __init__(self, client):
     self.client = client
-
-
 def setup(client):
   client.add_cog(Fun(client))""")
       f.close()
@@ -151,7 +148,6 @@ def setup(client):
         f.write(f"""import discord
 from discord.ext import commands
 import json
-
 class Miscellaneous(commands.Cog):
   def __init__(self, client):
     self.client = client
